@@ -1,4 +1,4 @@
-# PenguSegmentPartOfSpeech 盤古分詞+屬性 sample 
+# PenguSegmentPartOfSpeech 盤古分詞+屬性 Sample Code
 
 blog : http://no2don.blogspot.com/2017/04/c.html
 
