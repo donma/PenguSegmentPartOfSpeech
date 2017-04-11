@@ -14,7 +14,7 @@
         </div>
         <asp:Button ID="btnSplit" runat="server" Text="分詞" OnClick="btnSplit_Click" />
         <br />
-        <asp:Button ID="btnCreateWord" runat="server" Text="建立新分詞" OnClick="btnCreateWord_Click" />
+        <asp:Button ID="btnCreateWord" runat="server" Text="建立新分詞 - 當麻" OnClick="btnCreateWord_Click" />
         <br/>
 
         <p>

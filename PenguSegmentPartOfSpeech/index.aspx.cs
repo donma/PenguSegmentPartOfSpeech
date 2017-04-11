@@ -10,28 +10,28 @@ namespace PenguSegmentPartOfSpeech
         {
 
 
-         
+
         }
 
         protected void btnSplit_Click(object sender, EventArgs e)
         {
-       
+
             ltlResult.Text = "";
             var segment = new PanGu.Segment();
             var words = segment.DoSegment(txtContent.Text);
 
-            
+
             foreach (var word in words)
             {
-               ltlResult.Text+=(word + "," + GetChsPos(word.Pos) + "<br />");
+                ltlResult.Text += (word + "," + GetChsPos(word.Pos) + "<br />");
             }
         }
 
 
-       
+
         private string GetChsPos(POS pos)
         {
-         
+
             switch (pos)
             {
                 case POS.POS_UNK:
@@ -102,14 +102,15 @@ namespace PenguSegmentPartOfSpeech
 
         protected void btnCreateWord_Click(object sender, EventArgs e)
         {
-          
+
             PanGu.Dict.WordDictionary w = new PanGu.Dict.WordDictionary();
             w.Load(AppDomain.CurrentDomain.BaseDirectory + "bin" + Path.DirectorySeparatorChar + "Dict" + Path.DirectorySeparatorChar + "Dict.dct");
-          
+            //人名
             w.InsertWord("當麻", 500, POS.POS_A_NR);
-         
+            //地名
+            w.InsertWord("杜拜", 500, POS.POS_A_NS);
             w.Save(AppDomain.CurrentDomain.BaseDirectory + "bin" + Path.DirectorySeparatorChar + "Dict" + Path.DirectorySeparatorChar + "Dict.dct");
-     
+
         }
     }
 }
