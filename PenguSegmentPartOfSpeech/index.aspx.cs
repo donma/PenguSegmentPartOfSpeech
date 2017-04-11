@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using PanGu;
 
 namespace PenguSegmentPartOfSpeech
@@ -18,6 +19,8 @@ namespace PenguSegmentPartOfSpeech
             ltlResult.Text = "";
             var segment = new PanGu.Segment();
             var words = segment.DoSegment(txtContent.Text);
+
+            
             foreach (var word in words)
             {
                ltlResult.Text+=(word + "," + GetChsPos(word.Pos) + "<br />");
@@ -95,6 +98,18 @@ namespace PenguSegmentPartOfSpeech
                     return "形容詞 形語素";
             }
             return "未知詞性";
+        }
+
+        protected void btnCreateWord_Click(object sender, EventArgs e)
+        {
+          
+            PanGu.Dict.WordDictionary w = new PanGu.Dict.WordDictionary();
+            w.Load(AppDomain.CurrentDomain.BaseDirectory + "bin" + Path.DirectorySeparatorChar + "Dict" + Path.DirectorySeparatorChar + "Dict.dct");
+          
+            w.InsertWord("當麻", 500, POS.POS_A_NR);
+         
+            w.Save(AppDomain.CurrentDomain.BaseDirectory + "bin" + Path.DirectorySeparatorChar + "Dict" + Path.DirectorySeparatorChar + "Dict.dct");
+     
         }
     }
 }
